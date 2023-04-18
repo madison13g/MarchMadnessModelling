@@ -1,0 +1,56 @@
+---
+title: "notes"
+author: "Madison Greenough"
+date: "2023-03-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+First, I started in R, scraped, cleaned and merged all of the data. Then I found out there was a package that sourced an API with sports data. I switched to Python, did some work there, and then found out that the API wrapper is out of date and is not updated for this season. So, I went back to R. I was very indecisive and read a lot of similar projects done with March Madness and sports overall. I decided I wanted to do something different and unique, because it seems like everyone is using k-means and clustering.
+
+I acknowledge that this probably isn't the best model, but given the additional work of doing head-to-head matchups, and considering that almost everyone builds their model using a head-to-head format, I thought this would be a unique and interesting way of doing things. Also, given that there are 4 regions so, technically, for example, the best two teams could not both make it to the finals, I thought that this approach would be a good way to test the even allocation of the regions. The regions are made very uniquely and don't actually correspond to the geographical region where the school is. This is decided through a weird process that is a bit unclear to fans.
+
+
+I filled out a bracket for each the linear model and the random forest model.
+
+I filled it out by starting from the lowest ranked teams, and choosing the opponent to win for each round. 
+
+LINEAR MODEL
+
+Conflicts in first round - 
+
+- Michigan State (7) ranked 46th, vs opponent USC (10) ranked 53rd. It predicted both of these losing in the first round, but they play each other, so one must advance.
+- Indiana (4) ranked 44th vs opponent Kent State (13) ranked 59th.
+- San Diego State (5) ranked 40th vs opponent Charleston (12) ranked 49th.
+- UCLA (2) ranked 39th vs opponent UNC Ashville (15) ranked 62nd
+- Creighton (6) ranked 37th vs opponent NC State (11) ranked 54th
+- Xavier (3) ranked 36th vs opponent Kennessaw St. (14) ranked 56th
+- Alabama (1) ranked 33rd vs opponent Texas A&M SS (16) ranked 47th
+
+After looking through these, there were just 7 conflicts and 7 games without a selection yet.
+
+Conflicts in second round - ROUND OF 32 -
+
+Interesting note, the model's predicted winner actually did the play-in in the first four and lost so they won't even play in the tournament.
+
+
+RF MODEL
+
+Conflicts in first round - 
+
+It appears, at first glance, that the bottom teams here are all low seeds, which obviously, will play high seeds, so this appears good at first glance.
+
+- zero conflicts in the first round
+
+Of the top 5 predictions, it was possible to have 4 of them in the final 4.
+
+
+
+
+- talk about lm model (how it was made and what its summary stats are), same thing for RF, then talk about how it actually estimates the data. i.e. the range of predictions, etc. Start with writing how I categorized predictions (i.e. 1,2,3,5,5,...,9.,,,17,...,33,....).
